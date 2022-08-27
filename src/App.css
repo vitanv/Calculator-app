@@ -1,5 +1,5 @@
 .container{
-  width: 50vh;
+  min-width: 55vh;
   background-color: darkblue;
   padding: 1rem;
 }
@@ -7,10 +7,16 @@
   text-align: end;
   background-color: black;
   color: white;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: large;
+}
+
+.keyboard{
+  margin: auto auto auto auto;
 }
 
 .btn{
   margin-top: 0.5rem;
   margin-right: 0.5rem;
-  
+  width: 5.2rem;
 }

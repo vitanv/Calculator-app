@@ -9,10 +9,20 @@
   color: white;
   font-family: 'Share Tech Mono', monospace;
   font-size: large;
+  padding-right: 0.5rem;
 }
 
 .keyboard{
   margin: auto auto auto auto;
+}
+.row{
+  display: flex;
+  justify-content: center;
+}
+
+#first-row{
+  justify-content: flex-start;
+  padding-left: 1.3rem;
 }
 
 .btn{

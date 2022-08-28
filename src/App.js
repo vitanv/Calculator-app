@@ -8,7 +8,7 @@ function App() {
         <div className='display' id='current-number'><p>0</p></div>
       </div>
       <div className='keyboard'>
-        <div className='row'>
+        <div className='row' id='first-row'>
           <button className='btn btn-warning' id="clear">AC</button>
           <button className='btn btn-warning' id="delete">CE</button>
         </div>

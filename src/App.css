@@ -10,6 +10,7 @@
   font-family: 'Share Tech Mono', monospace;
   font-size: large;
   padding-right: 0.5rem;
+  border-radius: 10px;
 }
 
 .keyboard{

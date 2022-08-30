@@ -8,12 +8,17 @@ export class App extends React.Component {
       display:'',
     }
     this.clickDecimal = this.clickDecimal.bind(this);
+    this.clickCE = this.clickCE.bind(this);
   }
   clickDecimal = (value) =>{
-    console.log("Clicked");
     this.setState({
       display:this.state.display+value,
     });
+  }
+  clickCE = () => {
+    this.setState({
+      display:'',
+    })
   }
   render(){
     return (
@@ -25,7 +30,7 @@ export class App extends React.Component {
         <div className='keyboard'>
           <div className='row' id='first-row'>
             <button className='btn btn-warning' id="clear">AC</button>
-            <button className='btn btn-warning' id="delete">CE</button>
+            <button className='btn btn-warning' id="delete" onClick={this.clickCE}>CE</button>
           </div>
           <div className='row'>
             <button className='btn btn-primary' id="seven" value="7" onClick={(e) => this.clickDecimal(e.target.value)}>7</button>

@@ -13,11 +13,17 @@ export class App extends React.Component {
     this.clickOperator = this.clickOperator.bind(this);
   }
   clickDecimal = (value) =>{
+    if(value == 0 && this.state.display == ''){
+      return;
+    }
     this.setState({
       display:this.state.display+value,
     });
   }
   clickOperator = (value) =>{
+    if(this.state.display == ''){
+      return;
+    }
     this.setState({
       formula:this.state.formula+this.state.display+value,
       display:'',

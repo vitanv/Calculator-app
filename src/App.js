@@ -6,14 +6,22 @@ export class App extends React.Component {
     super(props);
     this.state = {
       display:'',
+      formula:'',
     }
     this.clickDecimal = this.clickDecimal.bind(this);
     this.clickCE = this.clickCE.bind(this);
+    this.clickOperator = this.clickOperator.bind(this);
   }
   clickDecimal = (value) =>{
     this.setState({
       display:this.state.display+value,
     });
+  }
+  clickOperator = (value) =>{
+    this.setState({
+      formula:this.state.formula+this.state.display+value,
+      display:'',
+    })
   }
   clickCE = () => {
     this.setState({
@@ -24,7 +32,7 @@ export class App extends React.Component {
     return (
       <div className='container' id='calculator'>
         <div className='display'>
-          <div className='display' id='previous-numbers'><p>0</p></div>
+          <div className='display' id='previous-numbers'><p>{this.state.formula || 0}</p></div>
           <div className='display' id='current-number'><p>{this.state.display || 0}</p></div>
         </div>
         <div className='keyboard'>
@@ -36,25 +44,25 @@ export class App extends React.Component {
             <button className='btn btn-primary' id="seven" value="7" onClick={(e) => this.clickDecimal(e.target.value)}>7</button>
             <button className='btn btn-primary' id="eight" value="8" onClick={(e) => this.clickDecimal(e.target.value)}>8</button>
             <button className='btn btn-primary' id="nine" value="9" onClick={(e) => this.clickDecimal(e.target.value)}>9</button>
-            <button className='btn btn-secondary' id="plus" value="+" >+</button>
+            <button className='btn btn-secondary' id="plus" value="+" onClick={(e) => this.clickOperator(e.target.value)}>+</button>
           </div>
           <div className='row'>
             <button className='btn btn-primary' id="four" value="4" onClick={(e) => this.clickDecimal(e.target.value)}>4</button>
             <button className='btn btn-primary' id="five" value="5" onClick={(e) => this.clickDecimal(e.target.value)}>5</button>
             <button className='btn btn-primary' id="six" value="6" onClick={(e) => this.clickDecimal(e.target.value)}>6</button>
-            <button className='btn btn-secondary' id="minus" value="-" >-</button>
+            <button className='btn btn-secondary' id="minus" value="-" onClick={(e) => this.clickOperator(e.target.value)}>-</button>
           </div>
           <div className='row'>
             <button className='btn btn-primary' id="one" value="1" onClick={(e) => this.clickDecimal(e.target.value)}>1</button>
             <button className='btn btn-primary' id="two" value="2" onClick={(e) => this.clickDecimal(e.target.value)}>2</button>
             <button className='btn btn-primary' id="three" value="3" onClick={(e) => this.clickDecimal(e.target.value)}>3</button>
-            <button className='btn btn-secondary' id="multiply" value="*">*</button>  
+            <button className='btn btn-secondary' id="multiply" value="*" onClick={(e) => this.clickOperator(e.target.value)}>*</button>  
           </div>
           <div className='row'>
-            <button className='btn btn-primary' id="zero" value="0">0</button>
+            <button className='btn btn-primary' id="zero" value="0" onClick={(e) => this.clickDecimal(e.target.value)}>0</button>
             <button className='btn btn-secondary' id="dot" value=".">.</button>
             <button className='btn btn-success' id="equal" value="=">=</button>
-            <button className='btn btn-secondary' id="division" value="/">/</button>
+            <button className='btn btn-secondary' id="division" value="/" onClick={(e) => this.clickOperator(e.target.value)}>/</button>
           </div>
         </div>
       </div>

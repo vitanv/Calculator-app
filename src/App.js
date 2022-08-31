@@ -34,6 +34,12 @@ export class App extends React.Component {
       display:'',
     })
   }
+  clickAC = () => {
+    this.setState({
+      display:'',
+      formula:'',
+    })
+  }
   render(){
     return (
       <div className='container' id='calculator'>
@@ -43,7 +49,7 @@ export class App extends React.Component {
         </div>
         <div className='keyboard'>
           <div className='row' id='first-row'>
-            <button className='btn btn-warning' id="clear">AC</button>
+            <button className='btn btn-warning' id="clear" onClick={this.clickAC}>AC</button>
             <button className='btn btn-warning' id="delete" onClick={this.clickCE}>CE</button>
           </div>
           <div className='row'>
@@ -66,7 +72,7 @@ export class App extends React.Component {
           </div>
           <div className='row'>
             <button className='btn btn-primary' id="zero" value="0" onClick={(e) => this.clickDecimal(e.target.value)}>0</button>
-            <button className='btn btn-secondary' id="dot" value=".">.</button>
+            <button className='btn btn-secondary' id="dot" value="." onClick={(e) => this.clickDecimal(e.target.value)}>.</button>
             <button className='btn btn-success' id="equal" value="=">=</button>
             <button className='btn btn-secondary' id="division" value="/" onClick={(e) => this.clickOperator(e.target.value)}>/</button>
           </div>

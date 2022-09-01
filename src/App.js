@@ -62,6 +62,7 @@ export class App extends React.Component {
           <div className='row' id='first-row'>
             <button className='btn btn-warning' id="clear" onClick={this.clickAC}>AC</button>
             <button className='btn btn-warning' id="delete" onClick={this.clickCE}>CE</button>
+            <button className='btn btn-secondary' id="prefix" onClick={this.clickCE}>+/-</button>
           </div>
           <div className='row'>
             <button className='btn btn-primary' id="seven" value="7" onClick={(e) => this.clickDecimal(e.target.value)}>7</button>

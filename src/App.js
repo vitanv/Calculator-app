@@ -7,11 +7,14 @@ export class App extends React.Component {
     this.state = {
       display:'',
       formula:'',
+      previous:'',
     }
     this.clickDecimal = this.clickDecimal.bind(this);
     this.clickCE = this.clickCE.bind(this);
     this.clickOperator = this.clickOperator.bind(this);
+    this.clickEqual = this.clickEqual.bind(this);
   }
+
   clickDecimal = (value) =>{
     if(value == 0 && this.state.display == ''){
       return;
@@ -37,6 +40,14 @@ export class App extends React.Component {
   clickAC = () => {
     this.setState({
       display:'',
+      formula:'',
+    })
+  }
+  clickEqual = () =>{
+    if(this.state.formula == '' || this.state.display == '') return;
+    let answer = eval(this.state.formula + this.state.display);
+    this.setState({
+      display:answer,
       formula:'',
     })
   }
@@ -73,7 +84,7 @@ export class App extends React.Component {
           <div className='row'>
             <button className='btn btn-primary' id="zero" value="0" onClick={(e) => this.clickDecimal(e.target.value)}>0</button>
             <button className='btn btn-secondary' id="dot" value="." onClick={(e) => this.clickDecimal(e.target.value)}>.</button>
-            <button className='btn btn-success' id="equal" value="=">=</button>
+            <button className='btn btn-success' id="equal" value="=" onClick={this.clickEqual}>=</button>
             <button className='btn btn-secondary' id="division" value="/" onClick={(e) => this.clickOperator(e.target.value)}>/</button>
           </div>
         </div>

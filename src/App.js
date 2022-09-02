@@ -19,6 +19,9 @@ export class App extends React.Component {
     if(value == 0 && this.state.display == ''){
       return;
     }
+    if(value == "." && this.state.display.indexOf(".") != -1){
+      return;
+    }
     this.setState({
       display:this.state.display+value,
     });

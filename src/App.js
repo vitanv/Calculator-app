@@ -7,20 +7,30 @@ export class App extends React.Component {
     this.state = {
       display:'',
       formula:'',
-      previous:'',
     }
     this.clickDecimal = this.clickDecimal.bind(this);
     this.clickCE = this.clickCE.bind(this);
     this.clickOperator = this.clickOperator.bind(this);
     this.clickEqual = this.clickEqual.bind(this);
     this.clickPrefix = this.clickPrefix.bind(this);
+    this.checkLength = this.checkLength.bind(this);
   }
-
+  checkLength = () =>{
+    if(this.state.display.length > 8 || this.state.formula.length > 18){
+      return false;
+    }else{
+      return true;
+    }
+  }
   clickDecimal = (value) =>{
     if(value == 0 && this.state.display == ''){
       return;
     }
     if(value == "." && this.state.display.indexOf(".") != -1){
+      return;
+    }
+    if(!this.checkLength()){
+      alert("Input too large!");
       return;
     }
     this.setState({
@@ -29,6 +39,10 @@ export class App extends React.Component {
   }
   clickOperator = (value) =>{
     if(this.state.display == ''){
+      return;
+    }
+    if(this.checkLength()){
+      alert("Input too large!");
       return;
     }
     this.setState({

@@ -13,6 +13,7 @@ export class App extends React.Component {
     this.clickCE = this.clickCE.bind(this);
     this.clickOperator = this.clickOperator.bind(this);
     this.clickEqual = this.clickEqual.bind(this);
+    this.clickPrefix = this.clickPrefix.bind(this);
   }
 
   clickDecimal = (value) =>{
@@ -54,6 +55,17 @@ export class App extends React.Component {
       formula:'',
     })
   }
+  clickPrefix = () =>{
+    if(this.state.display.charAt(0) == '-'){
+      this.setState({
+        display: this.state.display.substring(1),
+      })
+    }else{
+      this.setState({
+        display: '-' + this.state.display,
+      })
+    }
+  }
   render(){
     return (
       <div className='container' id='calculator'>
@@ -65,7 +77,7 @@ export class App extends React.Component {
           <div className='row' id='first-row'>
             <button className='btn btn-warning' id="clear" onClick={this.clickAC}>AC</button>
             <button className='btn btn-warning' id="delete" onClick={this.clickCE}>CE</button>
-            <button className='btn btn-secondary' id="prefix" onClick={this.clickCE}>+/-</button>
+            <button className='btn btn-secondary' id="prefix" onClick={this.clickPrefix}>+/-</button>
           </div>
           <div className='row'>
             <button className='btn btn-primary' id="seven" value="7" onClick={(e) => this.clickDecimal(e.target.value)}>7</button>

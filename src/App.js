@@ -41,7 +41,7 @@ export class App extends React.Component {
     if(this.state.display == ''){
       return;
     }
-    if(this.checkLength()){
+    if(!this.checkLength()){
       alert("Input too large!");
       return;
     }
